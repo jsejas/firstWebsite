@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--Joel Sejas -->
+
+<html>
+<head>
+<title>CS80 Final</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<style>
+.header {
+    padding: 1%;
+    background-color: #44464c;
+    border: 1px solid #e9e9e9; 
+    }
+.button {
+    background-color: whitesmoke;
+    border: none;
+    color: black;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: dimgrey;
+</style>
+
+</head>
+<body bgcolor="#5a6070" text="#FFFFFF" alink="#FFFFFF" vlink="#00CCFF">
+<div class="header">
+    <h1>CS80 Final Project</h1>
+</div>
+<br>
+<table width="312" border="0" cellpadding="10" height="50" align ="center">
+  <tr align="center" valign="middle"> 
+    <td width="288"> 
+    <div align="center"><b><font color="#FFFFFF" size="5" face="Georgia, Times New Roman, Times, serif">Rock Paper Scissors</font></b></div>
+    </td>
+  </tr>
+</table>
+<br>
+
+
+<table width="200" border="2" cellpadding="5" height="800" align ="left">
+  <tr align="left" valign="top"> 
+    <td width="187" height="173"> 
+	
+      <ul>
+        <li><b><a href = "main.html"><font color="#FFFFFF">Home</font></a></b></li>
+        <li><b><a href = "ppuzzel.html"><font color="#FFFFFF">Picture Puzzel</font></a></b></li>
+        <li><b><a href = "coinflip.html"><font color="#FFFFFF">Coin Flip</font></a></b></li>
+        <li><b><a href = "rps.html"><font color="#FFFFFF">Rock Paper Scissors</font></a></b></li>
+     </ul>
+    </td>
+  </tr>
+</table>
+
+<table width="5%" height="400" border="0" cellpadding="1" cellspacing="0" align="left">
+  <tr align="left" valign="top">
+    <td ></td>
+	</tr>
+	</table>
+	
+
+
+
+
+    <script type="text/javascript">
+        // User choice
+        
+        var userChoice = prompt("Choose: rock, paper or scissors?");
+        
+        if (! userChoice) {
+            // User choice was undefined
+            document.write("<p>Undefined entry.</p>");
+        } 
+        else {
+            // Display user choice
+            document.write("<p>Your Hand:" + " " + userChoice + "</p>");
+            }
+        if(userChoice == 'rock')
+        {
+            document.writeln("<p>");
+            document.writeln("<img src=\"rock.png\" alt=\"rock hand\">")
+            document.writeln("</p>");
+        }
+        else if (userChoice == 'paper')
+        {
+            document.writeln("<p>");
+            document.writeln("<img src=\"paper.png\" alt=\"paper hand\">")
+            document.writeln("</p>");
+        }
+        else 
+        {
+            document.writeln("<p>");
+            document.writeln("<img src=\"scissors.png\" alt=\"scissors hand\">")
+            document.writeln("</p>");
+        }
+        
+        
+        var computerChoice = Math.random();
+        if (computerChoice < 0.34) {
+            computerChoice = "rock";
+        } else if(computerChoice <= 0.67) {      //computerChoice randomize           
+            computerChoice = "paper";
+        } else {
+            computerChoice = "scissors";
+        }
+        
+        document.write("<p>Computer:" + " " + computerChoice + "</p>");
+        // Compare user choice vs computer choice
+        if(computerChoice == 'rock')
+        {
+            document.writeln("<p>");
+            document.writeln("          <img src=\"rock.png\" alt=\"rock hand\">")
+            document.writeln("</p>");
+        }
+        else if (computerChoice == 'paper')
+        {
+            document.writeln("<p>");
+            document.writeln("          <img src=\"paper.png\" alt=\"paper hand\">")
+            document.writeln("</p>");
+        }
+        else 
+        {
+            document.writeln("<p>");
+            document.writeln("          <img src=\"scissors.png\" alt=\"scissors hand\">")
+            document.writeln("</p>");
+        }
+        
+        var compare = function(choice1,choice2) {
+            if (choice1 === choice2) {
+                return "It's a tie!";
+            }
+            if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    return "You win!";
+                } else {
+                    return "You lose!";
+                }
+            }
+            if (choice1 === "paper") {
+                if (choice2 === "rock") {
+                    return "You win!";
+                } else {
+                    return "You lose!";
+                }
+            }
+            if (choice1 === "scissors") {
+                if (choice2 === "rock") {
+                    return "You lose!";
+                } else {
+                    return "You win!";
+                }
+            }
+        };
+        var results = compare(userChoice,computerChoice);   //compare
+        document.write("<br><hr><br>" + results);           //show result
+    </script>
+
+<p>
+     
+    <a class="button" href="rps.html">Try Again</a>
+    </p>
+<br>
+</body>
+</html>
